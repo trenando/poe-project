@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 700;
+}
+
+:root {
+    --my-main-color: rgb(219, 44, 44);
+    --my-second-color: rgb(253, 244, 244);
+    --header-bg-color: rgb(179, 100, 100);
+    --footer-bg-color: rgb(179, 100, 100);
+}
+
+input {
+    outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
