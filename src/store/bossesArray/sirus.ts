@@ -1,5 +1,5 @@
 import { Boss } from "../Types";
-import { sirusLoot } from "../loot/sirusLoot";
+import { sirusLoot } from "../bossesLoot/sirusLoot";
 import { initialOptions } from "../options/options";
 
 export const sirus: Boss = {

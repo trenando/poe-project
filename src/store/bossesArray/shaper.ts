@@ -1,5 +1,5 @@
 import { Boss } from "../Types";
-import { shaperLoot } from "../loot/shaperLoot";
+import { shaperLoot } from "../bossesLoot/shaperLoot";
 import { initialOptions } from "../options/options";
 
 export const shaper: Boss = {

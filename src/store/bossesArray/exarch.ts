@@ -1,5 +1,5 @@
 import { Boss } from "../Types";
-import { exarchLoot } from "../loot/exarchLoot";
+import { exarchLoot } from "../bossesLoot/exarchLoot";
 import { initialOptions } from "../options/options";
 
 export const exarch: Boss = {

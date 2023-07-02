@@ -1,5 +1,5 @@
 import { Boss } from "../Types";
-import { elderLoot } from "../loot/elderLoot";
+import { elderLoot } from "../bossesLoot/elderLoot";
 import { initialOptions } from "../options/options";
 
 export const elder: Boss = {

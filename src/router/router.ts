@@ -4,6 +4,7 @@ import InvitationsPage from "../pages/InvitationsPage.vue";
 import MapsPage from "../pages/MapsPage.vue";
 import BossesPageById from "../pages/BossesPageById.vue";
 import { createRouter, createWebHistory } from "vue-router";
+import InvitationPageById from "../pages/InvitationPageById.vue";
 
 const routes = [
     {
@@ -26,6 +27,10 @@ const routes = [
         path: "/bosses/:id",
         component: BossesPageById
     },
+    {
+        path: "/invitation/:id",
+        component: InvitationPageById
+    }
 ];
 
 const router = createRouter({

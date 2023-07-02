@@ -1,5 +1,5 @@
 import { Boss } from "../Types";
-import { uberLoot } from "../loot/uberLoot";
+import { uberLoot } from "../bossesLoot/uberLoot";
 import { initialOptions } from "../options/options";
 
 export const uber: Boss = {

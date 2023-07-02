@@ -1,5 +1,5 @@
 import { Boss } from "../Types";
-import { atziriLoot } from "../loot/atziriLoot";
+import { atziriLoot } from "../bossesLoot/atziriLoot";
 import { initialOptions } from "../options/options";
 
 export const atziri: Boss = {

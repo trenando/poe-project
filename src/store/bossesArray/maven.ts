@@ -1,5 +1,5 @@
 import { Boss } from "../Types";
-import { mavenLoot } from "../loot/mavenLoot";
+import { mavenLoot } from "../bossesLoot/mavenLoot";
 import { initialOptions } from "../options/options";
 
 export const maven: Boss = {

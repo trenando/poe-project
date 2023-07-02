@@ -3,23 +3,11 @@
         <div v-for="element in bossById" class="section__content">
             <div v-if="!Array.isArray(element)" :key="element.name">
                 <span class="name">{{ element.name }}</span>
-                <my-input v-model.number="element.value" @input="bossesStore.changeDepValue(element)" />
+                <my-input v-model.number="element.value"
+                    @input="utilityStore.changeCostValue<BossById>(element, bossById)" />
                 <my-select v-if="element.options" v-model="element.selectedValue" :options="element.options" />
             </div>
-            <div v-else v-for="el in element" :key="el.name" class="loot">
-                <div class="loot__name">{{ el.name }}</div>
-                <div class="loot__items">
-                    <div class="loot__item">
-                        <span>Cost:</span>
-                        <my-input v-model.number="el.cost" />
-                    </div>
-                    <div class="loot__item">
-                        <span>Count:</span>
-                        <my-input v-model.number="el.count" />
-                    </div>
-                </div>
-                <my-select v-model="el.selectedValue" :options="el.options" class="loot__select"/>
-            </div>
+            <loot v-else v-for="el in element" :key="el.name" :loot="el" />
         </div>
         <change-divine />
     </section>
@@ -33,13 +21,20 @@ import { storeToRefs } from "pinia";
 import MyInput from "../components/UI/MyInput.vue";
 import ChangeDivine from "../components/ChangeDivine.vue";
 import MySelect from "../components/UI/MySelect.vue";
+import { useUtilityStore } from "../store/utilityStore";
+import { Boss, BossById } from "../store/Types"
+import Loot from "../components/Loot.vue";
 
 const bossesStore = useBossesStore();
-const route = useRoute()
+const utilityStore = useUtilityStore();
+const route = useRoute();
 const { bossById } = storeToRefs(bossesStore);
 
 onMounted(() => {
-    bossesStore.filterBossById(route.params.id as string)
+    utilityStore.filterById<Boss>(route.params.id as string, {
+        array: bossesStore.bosses,
+        value: bossById
+    })
 })
 
 </script>
@@ -99,7 +94,7 @@ onMounted(() => {
             }
         }
 
-        &__select{
+        &__select {
             margin: 5px 0 0 0;
             width: 200px;
         }

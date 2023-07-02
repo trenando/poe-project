@@ -1,5 +1,5 @@
 import { Boss } from "../Types";
-import { eaterLoot } from "../loot/eaterLoot";
+import { eaterLoot } from "../bossesLoot/eaterLoot";
 import { initialOptions } from "../options/options";
 
 export const eater: Boss = {

@@ -1,5 +1,5 @@
 import { Boss } from "../Types";
-import { cortexLoot } from "../loot/cortexLoot";
+import { cortexLoot } from "../bossesLoot/cortexLoot";
 import { initialOptions } from "../options/options";
 
 export const cortex: Boss = {
