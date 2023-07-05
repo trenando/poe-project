@@ -9,7 +9,7 @@
             </div>
             <loot v-else v-for="el in element" :key="el.name" :loot="el" />
         </div>
-        <change-divine />
+        <change-divine :itemById="bossById" />
     </section>
 </template>
 

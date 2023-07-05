@@ -1,19 +1,40 @@
 import { defineStore, storeToRefs } from "pinia";
 import { Loot } from "./bossesLoot/Types";
 import { useUtilityStore } from "./utilityStore";
-import { useBossesStore } from "./bossesStore";
+import { UnitById } from "./Types";
 
 export const useFinalResultStore = defineStore("finalResultStore", () => {
-    const bossesStore = useBossesStore();
 
     const utilityStore = useUtilityStore()
     const { options, exchangeRatio, lootResult, profit } = storeToRefs(utilityStore)
 
-    const calculateFinalResult = () => {
+    const extendedCalculatedResult = (calculatedStore: CalculatedStore) => {
+        const costPerAll = {
+            value: 0,
+            selectedValue: "chaos"
+        };
+        (Object.keys(calculatedStore) as (keyof CalculatedStore)[]).forEach((el) => {
+            if ((calculatedStore[el] as UnitById).costPerAll) {
+                const someElement: UnitById = calculatedStore[el] as UnitById;
+                if (someElement.costPerAll.selectedValue === "divine") {
+                    costPerAll.value += someElement.costPerAll.value * exchangeRatio.value
+                } else {
+                    costPerAll.value += someElement.costPerAll.value
+                }
+            }
+        })
+        return {
+            costPerAll: costPerAll,
+            loot: calculatedStore.loot
+        }
+    }
+
+    const calculateFinalResult = (itemById: ItemById) => {
         const currentExchangeValue = options.value.selectedValue;
-        const costPerAll = JSON.parse(JSON.stringify(bossesStore.bossById.costPerAll))
-        const chaos = calculateSelectedValue(bossesStore.bossById.loot, "chaos")
-        const divine = calculateSelectedValue(bossesStore.bossById.loot, "divine")
+        const costPerAll = JSON.parse(JSON.stringify(itemById.costPerAll))
+        const chaos = calculateSelectedValue(itemById.loot, "chaos")
+        const divine = calculateSelectedValue(itemById.loot, "divine")
+
         let lootResultNum = 0;
         let profinNum = 0;
         if (currentExchangeValue === "chaos") {
@@ -41,6 +62,20 @@ export const useFinalResultStore = defineStore("finalResultStore", () => {
     }
 
     return {
-        calculateFinalResult
+        calculateFinalResult, extendedCalculatedResult
     }
 })
+
+type ItemById = {
+    costPerAll: {
+        value: number,
+        selectedValue: string
+    },
+    loot: Array<Loot>
+}
+
+type CalculatedStore = {
+    invitations: UnitById
+    sets: UnitById
+    loot: Array<Loot>
+}

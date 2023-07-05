@@ -51,30 +51,6 @@ export const formedLoot: Array<Loot> = [
         ...initialOptions
     },
     {
-        name: "chimera map",
-        cost: 0,
-        count: 0,
-        ...initialOptions
-    },
-    {
-        name: "hydra map",
-        cost: 0,
-        count: 0,
-        ...initialOptions
-    },
-    {
-        name: "minotaur mar",
-        cost: 0,
-        count: 0,
-        ...initialOptions
-    },
-    {
-        name: "phoenix map",
-        cost: 0,
-        count: 0,
-        ...initialOptions
-    },
-    {
         name: "awakened gem 1",
         cost: 0,
         count: 0,
@@ -94,6 +70,30 @@ export const formedLoot: Array<Loot> = [
     },
     {
         name: "awakened gem 4",
+        cost: 0,
+        count: 0,
+        ...initialOptions
+    },
+    {
+        name: "awakened gem 5",
+        cost: 0,
+        count: 0,
+        ...initialOptions
+    },
+    {
+        name: "awakened gem 6",
+        cost: 0,
+        count: 0,
+        ...initialOptions
+    },
+    {
+        name: "awakened gem 7",
+        cost: 0,
+        count: 0,
+        ...initialOptions
+    },
+    {
+        name: "awakened gem 8",
         cost: 0,
         count: 0,
         ...initialOptions

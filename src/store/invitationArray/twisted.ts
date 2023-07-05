@@ -3,8 +3,8 @@ import { twistedLoot } from "../invitationLoot/twistedLoot";
 import { initialOptions } from "../options/options";
 
 export const twisted: Invitation = {
-    id: "formed",
-    name: "The Formed",
+    id: "twisted",
+    name: "The Twisted",
     invitations: {
         costPerOne: {
             name: "Cost per one",

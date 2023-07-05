@@ -8,7 +8,7 @@
                 <my-input class="calculate__input" v-model.number="utilityStore.exchangeRatio" />
             </div>
         </div>
-        <my-button @click="finalResultStore.calculateFinalResult">Calculate</my-button>
+        <my-button @click="finalResultStore.calculateFinalResult(itemById)">Calculate</my-button>
         <div class="calculate__final">
             Loot value:
             <div class="calculate__result">
@@ -31,6 +31,10 @@ import MyButton from './UI/MyButton.vue';
 import MyInput from './UI/MyInput.vue';
 import MySelect from './UI/MySelect.vue';
 
+defineProps<{
+    itemById: any
+}>()
+
 const finalResultStore = useFinalResultStore()
 const utilityStore = useUtilityStore();
 </script>
@@ -40,7 +44,7 @@ const utilityStore = useUtilityStore();
     display: grid;
     grid-area: 3 / 1 / 3 / 5;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 20px;
 
     &__select {
         width: 100px;

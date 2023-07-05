@@ -15,7 +15,7 @@
             </div>
             <loot v-else v-for="el in invitationElement" :key="el.name" :loot="el" />
         </div>
-        <change-divine class="center" />
+        <change-divine :itemById="finalResultStore.extendedCalculatedResult(invitationById)" class="center" />
     </section>
 </template>
 
@@ -30,7 +30,9 @@ import MyInput from "../components/UI/MyInput.vue";
 import MySelect from "../components/UI/MySelect.vue";
 import Loot from '../components/Loot.vue';
 import ChangeDivine from '../components/ChangeDivine.vue';
+import { useFinalResultStore } from '../store/finalResultStore';
 
+const finalResultStore =useFinalResultStore()
 const invitationStore = useInvitationStore()
 const utilityStore = useUtilityStore()
 const route = useRoute()
@@ -72,7 +74,7 @@ onMounted(() => {
             width: 100%;
             display: grid;
             grid-area: 2 / 1 / 3 / 3;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             margin-top: 10px;
         }
     }
