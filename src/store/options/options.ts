@@ -1,4 +1,6 @@
-export const initialOptions = {
+import { Option } from "../types";
+
+export const initialOptions: InitialOptions = {
     options: [
         {
             name: "Chaos",
@@ -10,4 +12,9 @@ export const initialOptions = {
         }
     ],
     selectedValue: "chaos"
+}
+
+type InitialOptions = {
+    options: Array<Option>,
+    selectedValue: "divine" | "chaos"
 }

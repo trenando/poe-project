@@ -3,7 +3,7 @@ import { Loot } from "./bossesLoot/Types"
 
 export interface Option {
     name: string
-    value: string
+    value: "divine" | "chaos"
 }
 
 export interface Element {
@@ -18,7 +18,7 @@ export interface ExtendedElement extends Element {
 
 export interface Options {
     options: Array<Option>
-    selectedValue: string
+    selectedValue: "divine" | "chaos"
 }
 
 export interface BossById {
