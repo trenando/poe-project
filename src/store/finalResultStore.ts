@@ -1,7 +1,7 @@
 import { defineStore, storeToRefs } from "pinia";
 import { Loot } from "./bossesLoot/Types";
 import { useUtilityStore } from "./utilityStore";
-import { UnitById } from "./Types";
+import { ElementById } from "./types";
 
 export const useFinalResultStore = defineStore("finalResultStore", () => {
 
@@ -13,14 +13,11 @@ export const useFinalResultStore = defineStore("finalResultStore", () => {
             value: 0,
             selectedValue: "chaos"
         };
-        (Object.keys(calculatedStore) as (keyof CalculatedStore)[]).forEach((el) => {
-            if ((calculatedStore[el] as UnitById).costPerAll) {
-                const someElement: UnitById = calculatedStore[el] as UnitById;
-                if (someElement.costPerAll.selectedValue === "divine") {
-                    costPerAll.value += someElement.costPerAll.value * exchangeRatio.value
-                } else {
-                    costPerAll.value += someElement.costPerAll.value
-                }
+        calculatedStore.sets.forEach(el => {
+            if (el.costPerAll.selectedValue === "divine") {
+                costPerAll.value += el.costPerAll.value * exchangeRatio.value
+            } else {
+                costPerAll.value += el.costPerAll.value
             }
         })
         return {
@@ -75,7 +72,6 @@ type ItemById = {
 }
 
 type CalculatedStore = {
-    invitations: UnitById
-    sets: UnitById
+    sets: Array<ElementById>
     loot: Array<Loot>
 }

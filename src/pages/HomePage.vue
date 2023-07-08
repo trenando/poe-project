@@ -7,7 +7,6 @@
         <div>
             <my-button class="home__btn" @click="$router.push('/bosses')">Bosses</my-button>
             <my-button class="home__btn" @click="$router.push('/invitations')">Invitations</my-button>
-            <my-button class="home__btn" @click="$router.push('/maps')">Maps</my-button>
         </div>
     </div>
 </template>

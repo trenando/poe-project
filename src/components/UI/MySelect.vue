@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { Option } from "../../store/Types";
+import { Option } from "../../store/types";
 
 
 defineProps<{
@@ -35,4 +35,4 @@ const changeOption = (event: any) => {
     font-size: 16px;
     padding: 2px;
 }
-</style>
+</style>../../store/dada

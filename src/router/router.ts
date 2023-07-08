@@ -1,7 +1,6 @@
 import HomePage from "../pages/HomePage.vue";
 import BossesPage from "../pages/BossesPage.vue";
-import InvitationsPage from "../pages/InvitationsPage.vue";
-import MapsPage from "../pages/MapsPage.vue";
+import InvitationsPage from "../pages/InvitationsPage.vue";;
 import BossesPageById from "../pages/BossesPageById.vue";
 import { createRouter, createWebHistory } from "vue-router";
 import InvitationPageById from "../pages/InvitationPageById.vue";
@@ -18,10 +17,6 @@ const routes = [
     {
         path: "/invitations",
         component: InvitationsPage
-    },
-    {
-        path: "/maps",
-        component: MapsPage
     },
     {
         path: "/bosses/:id",

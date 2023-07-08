@@ -13,7 +13,7 @@ export interface Element {
 
 export interface ExtendedElement extends Element {
     options?: Array<Option>
-    selectedValue?: string
+    selectedValue?: "divine" | "chaos" | ""
 }
 
 export interface Options {
@@ -44,15 +44,8 @@ export interface FilterAttributes<T> {
     value: Ref<Omit<T, "id" | "name">>
 }
 
-export interface UnitById {
-    costPerOne: ExtendedElement
-    costPerAll: ExtendedElement
-    count: ExtendedElement
-}
-
 export interface InvitationById {
-    invitations: UnitById
-    sets: UnitById
+    sets: Array<ElementById>
     loot: Array<Loot>
 }
 

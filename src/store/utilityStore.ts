@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { Element, FilterAttributes, Options, UnitById } from "./Types";
+import { FilterAttributes, Options, ElementById, ExtendedElement } from "./types";
 import { Ref, ref } from "vue";
 import { initialOptions } from "./options/options";
 
@@ -16,26 +16,33 @@ export const useUtilityStore = defineStore("utilityStore", () => {
         filterAttributes.value.value = value;
     };
 
-    const changeCostValue = <T extends UnitById>(element: Element, elementById: T) => {
-        console.log(elementById);
-        let { costPerAll, costPerOne, count } = elementById;
-        if (element.name === "Cost per one") {
-            costPerAll.value = element.value * count.value
-        }
-        if (element.name === "Count") {
-            if (costPerOne.value) {
-                costPerAll.value = costPerOne.value * element.value
-            } else {
-                costPerOne.value = costPerAll.value / element.value
-            }
-        }
-        if (element.name === "Cost per all") {
-            if (count.value !== 0) {
-                costPerOne.value = element.value / count.value
-            } else {
-                costPerOne.value = 0;
-            }
-        }
+    const changeCostValue = <T extends ElementById>(element: ExtendedElement, elementById: T) => { 
+        const { costPerAll, costPerOne, count } = elementById; 
+ 
+        const costPerOneMultiplier = costPerOne.selectedValue === 'divine' ? exchangeRatio.value : 1; 
+        const costPerAllMultiplier = costPerAll.selectedValue === 'divine' ? exchangeRatio.value : 1; 
+ 
+        const finalCostPerAllMultiplier = (costPerOneMultiplier / costPerAllMultiplier); 
+        const finalCostPerOneMultiplier = (costPerAllMultiplier / costPerOneMultiplier); 
+ 
+        if (element.name === "Cost per one") { 
+            costPerAll.value = element.value * count.value * finalCostPerAllMultiplier 
+        } 
+        if (element.name === "Count") { 
+ 
+            if (costPerOne.value) { 
+                costPerAll.value = costPerOne.value * element.value * finalCostPerAllMultiplier 
+            } else { 
+                costPerOne.value = costPerAll.value / element.value * finalCostPerOneMultiplier 
+            } 
+        } 
+        if (element.name === "Cost per all") { 
+            if (count.value !== 0) { 
+                costPerOne.value = element.value / count.value * finalCostPerOneMultiplier 
+            } else { 
+                costPerOne.value = 0; 
+            } 
+        } 
     }
 
     return {

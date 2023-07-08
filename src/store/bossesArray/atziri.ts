@@ -1,4 +1,4 @@
-import { Boss } from "../Types";
+import { Boss } from "../types";
 import { atziriLoot } from "../bossesLoot/atziriLoot";
 import { initialOptions } from "../options/options";
 

@@ -22,7 +22,7 @@ import MyInput from "../components/UI/MyInput.vue";
 import ChangeDivine from "../components/ChangeDivine.vue";
 import MySelect from "../components/UI/MySelect.vue";
 import { useUtilityStore } from "../store/utilityStore";
-import { Boss, BossById } from "../store/Types"
+import { Boss, BossById } from "../store/types"
 import Loot from "../components/Loot.vue";
 
 const bossesStore = useBossesStore();
@@ -100,4 +100,4 @@ onMounted(() => {
         }
     }
 }
-</style>
+</style>../store/dada

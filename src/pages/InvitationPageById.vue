@@ -4,16 +4,18 @@
             <div class="section__name">Invitations</div>
             <div class="section__name">Sets</div>
         </div>
-        <div v-for="invitationElement in invitationById" class="section__content">
-            <div v-if="!Array.isArray(invitationElement)" class="section__element">
-                <div v-for="element in invitationElement" class="section__item">
+        <div class="section__content">
+            <div v-for="sets in invitationById.sets" class="section__sets">
+                <div v-for="element in sets" class="section__element">
                     <span class="name">{{ element.name }}</span>
                     <my-input v-model.number="element.value"
-                        @input="utilityStore.changeCostValue<UnitById>(element, invitationElement)" />
+                        @input="utilityStore.changeCostValue<ElementById>(element, sets)" />
                     <my-select v-if="element.options" v-model="element.selectedValue" :options="element.options" />
                 </div>
             </div>
-            <loot v-else v-for="el in invitationElement" :key="el.name" :loot="el" />
+            <div class="section__loot">
+                <loot v-for="el in invitationById.loot" :key="el.name" :loot="el" />
+            </div>
         </div>
         <change-divine :itemById="finalResultStore.extendedCalculatedResult(invitationById)" class="center" />
     </section>
@@ -23,7 +25,7 @@
 import { storeToRefs } from 'pinia';
 import { useInvitationStore } from '../store/invitationStore';
 import { useUtilityStore } from '../store/utilityStore';
-import { Invitation, UnitById } from '../store/Types';
+import { Invitation, ElementById } from '../store/types';
 import { useRoute } from 'vue-router';
 import { onMounted } from 'vue';
 import MyInput from "../components/UI/MyInput.vue";
@@ -32,7 +34,7 @@ import Loot from '../components/Loot.vue';
 import ChangeDivine from '../components/ChangeDivine.vue';
 import { useFinalResultStore } from '../store/finalResultStore';
 
-const finalResultStore =useFinalResultStore()
+const finalResultStore = useFinalResultStore()
 const invitationStore = useInvitationStore()
 const utilityStore = useUtilityStore()
 const route = useRoute()
@@ -68,26 +70,38 @@ onMounted(() => {
     }
 
     &__content {
-        width: 50%;
+        width: 100%;
 
-        &:nth-child(4) {
-            width: 100%;
+        &:nth-child(-n + 2) {
             display: grid;
-            grid-area: 2 / 1 / 3 / 3;
-            grid-template-columns: repeat(5, 1fr);
-            margin-top: 10px;
+            grid-template-columns: repeat(2, 1fr);
         }
     }
 
-    &__element {
+    &__loot {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-area: 2 / 1 / 3 / 3;
+        margin-top: 10px;
+    }
+
+    &__sets {
         display: grid;
         grid-template-columns: repeat(2, 1fr) auto;
     }
 
-    &__item {
+    &__element {
         display: flex;
         justify-content: center;
         align-items: center;
+
+        select {
+            margin-left: 5px;
+        }
+
+        &:last-child {
+            margin-right: 10px;
+        }
     }
 }
 
@@ -100,4 +114,4 @@ onMounted(() => {
     font-size: 20px;
     color: var(--my-main-color);
 }
-</style>
+</style>../store/dada

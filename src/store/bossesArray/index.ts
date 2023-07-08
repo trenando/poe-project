@@ -1,4 +1,4 @@
-import { Boss } from "../Types";
+import { Boss } from "../types";
 import { atziri } from "./atziri";
 import { cortex } from "./cortex";
 import { eater } from "./eater";

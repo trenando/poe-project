@@ -4,7 +4,6 @@
         <nav class="nav">
             <my-button @click="$router.push('/bosses')">Bosses</my-button>
             <my-button @click="$router.push('/invitations')">Invitations</my-button>
-            <my-button @click="$router.push('/maps')">Maps</my-button>
         </nav>
     </header>
 </template>
