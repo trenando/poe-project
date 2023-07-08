@@ -1,4 +1,4 @@
-import { Option } from "../rename";
+import { Option } from "../types";
 
 export const initialOptions: InitialOptions = {
     options: [

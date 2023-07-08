@@ -1,4 +1,4 @@
-import { Boss } from "../rename";
+import { Boss } from "../types";
 import { mavenLoot } from "../bossesLoot/mavenLoot";
 import { initialOptions } from "../options/options";
 

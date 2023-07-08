@@ -1,4 +1,4 @@
-import { Invitation } from "../rename";
+import { Invitation } from "../types";
 import { formedLoot } from "../invitationLoot/formedLoot";
 import { initialOptions } from "../options/options";
 

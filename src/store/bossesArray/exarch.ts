@@ -1,4 +1,4 @@
-import { Boss } from "../rename";
+import { Boss } from "../types";
 import { exarchLoot } from "../bossesLoot/exarchLoot";
 import { initialOptions } from "../options/options";
 

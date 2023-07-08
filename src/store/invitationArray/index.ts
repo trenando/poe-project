@@ -1,4 +1,4 @@
-import { Invitation } from "../rename";
+import { Invitation } from "../types";
 import { elderslayer } from "./elderslayer";
 import { feared } from "./feared";
 import { forgotten } from "./forgotten";

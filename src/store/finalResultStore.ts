@@ -1,7 +1,7 @@
 import { defineStore, storeToRefs } from "pinia";
 import { Loot } from "./bossesLoot/Types";
 import { useUtilityStore } from "./utilityStore";
-import { ElementById } from "./rename";
+import { ElementById } from "./types";
 
 export const useFinalResultStore = defineStore("finalResultStore", () => {
 

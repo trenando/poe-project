@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { ref, Ref } from "vue";
-import { Boss, BossById } from "./rename";
+import { Boss, BossById } from "./types";
 import { bossesArray } from "./bossesArray";
 
 export const useBossesStore = defineStore("bossesStore", () => {
