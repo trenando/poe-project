@@ -1,4 +1,4 @@
-import { Options } from "../types";
+import { Options } from "../rename";
 
 export interface Loot extends Options {
     name: string,

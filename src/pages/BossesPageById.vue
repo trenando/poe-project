@@ -100,4 +100,4 @@ onMounted(() => {
         }
     }
 }
-</style>../store/dada
+</style>../store/dada../store/rename

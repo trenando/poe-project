@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { FilterAttributes, Options, ElementById, ExtendedElement } from "./types";
+import { FilterAttributes, Options, ElementById, ExtendedElement } from "./rename";
 import { Ref, ref } from "vue";
 import { initialOptions } from "./options/options";
 

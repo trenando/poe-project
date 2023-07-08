@@ -1,4 +1,4 @@
-import { Boss } from "../types";
+import { Boss } from "../rename";
 import { elderLoot } from "../bossesLoot/elderLoot";
 import { initialOptions } from "../options/options";
 

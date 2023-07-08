@@ -1,4 +1,4 @@
-import { Boss } from "../types";
+import { Boss } from "../rename";
 import { eaterLoot } from "../bossesLoot/eaterLoot";
 import { initialOptions } from "../options/options";
 

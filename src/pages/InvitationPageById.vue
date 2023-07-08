@@ -114,4 +114,4 @@ onMounted(() => {
     font-size: 20px;
     color: var(--my-main-color);
 }
-</style>../store/dada
+</style>../store/dada../store/rename

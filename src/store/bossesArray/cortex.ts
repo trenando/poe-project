@@ -1,4 +1,4 @@
-import { Boss } from "../types";
+import { Boss } from "../rename";
 import { cortexLoot } from "../bossesLoot/cortexLoot";
 import { initialOptions } from "../options/options";
 

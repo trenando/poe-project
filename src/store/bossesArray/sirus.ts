@@ -1,4 +1,4 @@
-import { Boss } from "../types";
+import { Boss } from "../rename";
 import { sirusLoot } from "../bossesLoot/sirusLoot";
 import { initialOptions } from "../options/options";
 

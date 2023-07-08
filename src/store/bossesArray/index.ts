@@ -1,4 +1,4 @@
-import { Boss } from "../types";
+import { Boss } from "../rename";
 import { atziri } from "./atziri";
 import { cortex } from "./cortex";
 import { eater } from "./eater";
