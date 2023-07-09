@@ -16,33 +16,37 @@ export const useUtilityStore = defineStore("utilityStore", () => {
         filterAttributes.value.value = value;
     };
 
-    const changeCostValue = <T extends ElementById>(element: ExtendedElement, elementById: T) => { 
-        const { costPerAll, costPerOne, count } = elementById; 
- 
-        const costPerOneMultiplier = costPerOne.selectedValue === 'divine' ? exchangeRatio.value : 1; 
-        const costPerAllMultiplier = costPerAll.selectedValue === 'divine' ? exchangeRatio.value : 1; 
- 
-        const finalCostPerAllMultiplier = (costPerOneMultiplier / costPerAllMultiplier); 
-        const finalCostPerOneMultiplier = (costPerAllMultiplier / costPerOneMultiplier); 
- 
-        if (element.name === "Cost per one") { 
-            costPerAll.value = element.value * count.value * finalCostPerAllMultiplier 
-        } 
-        if (element.name === "Count") { 
- 
-            if (costPerOne.value) { 
-                costPerAll.value = costPerOne.value * element.value * finalCostPerAllMultiplier 
-            } else { 
-                costPerOne.value = costPerAll.value / element.value * finalCostPerOneMultiplier 
-            } 
-        } 
-        if (element.name === "Cost per all") { 
-            if (count.value !== 0) { 
-                costPerOne.value = element.value / count.value * finalCostPerOneMultiplier 
-            } else { 
-                costPerOne.value = 0; 
-            } 
-        } 
+    const changeCostValue = <T extends ElementById>(element: ExtendedElement, elementById: T) => {
+        const { costPerAll, costPerOne, count } = elementById;
+
+        const costPerOneMultiplier = costPerOne.selectedValue === 'divine' ? exchangeRatio.value : 1;
+        const costPerAllMultiplier = costPerAll.selectedValue === 'divine' ? exchangeRatio.value : 1;
+
+        const finalCostPerAllMultiplier = (costPerOneMultiplier / costPerAllMultiplier);
+        const finalCostPerOneMultiplier = (costPerAllMultiplier / costPerOneMultiplier);
+
+        if (element.name === "Cost per one") {
+            costPerAll.value = mathToFixed((element.value * count.value * finalCostPerAllMultiplier), 2)
+        }
+        if (element.name === "Count") {
+
+            if (costPerOne.value) {
+                costPerAll.value = mathToFixed((costPerOne.value * element.value * finalCostPerAllMultiplier), 2)
+            } else {
+                costPerOne.value = mathToFixed((costPerAll.value / element.value * finalCostPerOneMultiplier), 2)
+            }
+        }
+        if (element.name === "Cost per all") {
+            if (count.value !== 0) {
+                costPerOne.value = mathToFixed((element.value / count.value * finalCostPerOneMultiplier), 2)
+            } else {
+                costPerOne.value = 0;
+            }
+        }
+    }
+
+    const mathToFixed = (value: number, fixed: number) => {
+        return Number(value.toFixed(fixed))
     }
 
     return {
