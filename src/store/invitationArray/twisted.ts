@@ -7,6 +7,7 @@ export const twisted: Invitation = {
     name: "The Twisted",
     sets: [
         {
+            name: "Invitations",
             costPerOne: {
                 name: "Cost per one",
                 value: 0,
@@ -23,6 +24,7 @@ export const twisted: Invitation = {
             }
         },
         {
+            name: "Sets",
             costPerOne: {
                 name: "Cost per one",
                 value: 0,

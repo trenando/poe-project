@@ -15,7 +15,7 @@ import HeaderComponent from "./components/HeaderComponent.vue";
 
 <style scoped lang="scss">
 .main {
-    height: calc(100vh - 100px);
+    min-height: calc(100vh - 100px);
     background-color: rgb(255, 244, 225);
 }
 </style>

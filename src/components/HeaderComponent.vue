@@ -1,6 +1,6 @@
 <template>
     <header class="header">
-        <div class="header__home" @click="$router.push('/')">Home</div>
+        <my-button @click="$router.push('/')" class="header__home">Home</my-button>
         <nav class="nav">
             <my-button @click="$router.push('/bosses')">Bosses</my-button>
             <my-button @click="$router.push('/invitations')">Invitations</my-button>
@@ -23,20 +23,9 @@ import MyButton from './UI/MyButton.vue';
     padding: 20px;
     background-color: var(--header-bg-color);
 
-    &__home {
-        font-size: 20px;
-        color: var(--my-main-color);
-        cursor: pointer;
-        padding: 10px;
-        background-color: var(--my-second-color);
-        border: 1px solid var(--my-main-color);
-        border-radius: 10px;
-
-        &:hover {
-            color: var(--my-second-color);
-            background-color: var(--my-main-color);
-            border: 1px solid var(--my-second-color);
-        }
+    &__home {   
+        height: 40px;
+        font-size: 16px;
     }
 }
 

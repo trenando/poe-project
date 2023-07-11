@@ -9,6 +9,7 @@ export const useInvitationStore = defineStore("invitationStore", () => {
     const invitationById: Ref<InvitationById> = ref({
         sets: [
             {
+                name: "",
                 costPerOne: {
                     name: "",
                     value: 0,
@@ -27,6 +28,7 @@ export const useInvitationStore = defineStore("invitationStore", () => {
                 }
             },
             {
+                name: "",
                 costPerOne: {
                     name: "",
                     value: 0,

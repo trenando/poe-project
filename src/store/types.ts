@@ -29,6 +29,7 @@ export interface BossById {
 }
 
 export interface ElementById {
+    name?: string
     costPerOne: ExtendedElement
     costPerAll: ExtendedElement
     count: ExtendedElement

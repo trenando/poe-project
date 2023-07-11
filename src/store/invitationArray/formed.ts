@@ -7,6 +7,7 @@ export const formed: Invitation = {
     name: "The Formed",
     sets: [
         {
+            name:"Invitations",
             costPerOne: {
                 name: "Cost per one",
                 value: 0,
@@ -23,6 +24,7 @@ export const formed: Invitation = {
             }
         },
         {
+            name:"Sets",
             costPerOne: {
                 name: "Cost per one",
                 value: 0,

@@ -7,6 +7,7 @@ export const elderslayer: Invitation = {
     name: "The Elderslayer",
     sets: [
         {
+            name:"Invitations",
             costPerOne: {
                 name: "Cost per one",
                 value: 0,
@@ -23,6 +24,7 @@ export const elderslayer: Invitation = {
             }
         },
         {
+            name:"Sets",
             costPerOne: {
                 name: "Cost per one",
                 value: 0,

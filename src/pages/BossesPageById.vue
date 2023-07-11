@@ -46,6 +46,16 @@ onMounted(() => {
     grid-template-rows: repeat(2, auto);
     padding: 10px;
 
+    @media (max-width:1200px) {
+        grid-template-columns: repeat(2, 1fr) 130px;
+    }
+
+    @media (max-width:767px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     &__content {
         select {
             margin-left: 5px;
@@ -57,47 +67,37 @@ onMounted(() => {
             grid-area: 2 / 1 / 3 / 4;
             margin-top: 10px;
         }
+
+        @media (max-width:1200px) {
+            &:nth-child(4) {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width:767px) {
+            width: 300px;
+            margin-bottom: 10px;
+
+            &:nth-child(4) {
+                grid-template-columns: repeat(2, 1fr);
+                width: 100%;
+                margin-bottom: 0;
+            }
+        }
+
+        
+        @media (max-width:525px) {
+
+            &:nth-child(4) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
     }
 
     .name {
         margin-right: 5px;
         font-size: 20px;
         color: var(--my-main-color);
-    }
-
-    .loot {
-        display: flex;
-        flex-direction: column;
-        padding-left: 50px;
-        margin-bottom: 30px;
-
-        &__name {
-            margin-bottom: 5px;
-            font-size: 20px;
-            color: var(--my-main-color);
-        }
-
-        &__cost {
-            margin-bottom: 5px;
-        }
-
-        &__items {
-            display: flex;
-            justify-content: space-between;
-            width: 200px;
-        }
-
-        &__item {
-            span {
-                margin-right: 5px;
-                color: var(--my-main-color);
-            }
-        }
-
-        &__select {
-            margin: 5px 0 0 0;
-            width: 200px;
-        }
     }
 }
 </style>../store/dada../store/rename

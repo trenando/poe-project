@@ -49,6 +49,10 @@ const utilityStore = useUtilityStore();
     &__select {
         width: 100px;
         margin: 0 5px 10px 0;
+
+        @media (max-width:525px) {
+            margin: 0 auto 10px auto;
+        }
     }
 
     &__ratio {
@@ -75,6 +79,10 @@ const utilityStore = useUtilityStore();
 
     &__changer {
         display: flex;
+
+        @media (max-width:525px) {
+            flex-direction: column;
+        }
     }
 }
 </style>

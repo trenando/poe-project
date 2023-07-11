@@ -32,6 +32,21 @@ defineProps<{
     padding-left: 50px;
     margin-bottom: 30px;
 
+    @media (max-width:1366px) {
+        padding-left: 40px;
+    }
+
+    @media (max-width:1200px) {
+        padding: 0 10px;
+        margin-bottom: 25px;
+    }
+
+    @media (max-width:767px) {
+        padding: 0 10px;
+        margin-bottom: 20px;
+        align-items: center;
+    }
+
     &__name {
         margin-bottom: 5px;
         font-size: 20px;

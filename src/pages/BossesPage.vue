@@ -21,7 +21,15 @@ const bossesStore = useBossesStore();
     padding: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 100%;
+    min-height: inherit;
+
+    @media (max-width:767px) {
+        padding: 0;
+    }
+
+    @media (max-width:525px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 .block {

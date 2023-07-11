@@ -1,16 +1,17 @@
 <template>
     <section class="section">
-        <div class="section__names">
-            <div class="section__name">Invitations</div>
-            <div class="section__name">Sets</div>
-        </div>
         <div class="section__content">
             <div v-for="sets in invitationById.sets" class="section__sets">
                 <div v-for="element in sets" class="section__element">
-                    <span class="name">{{ element.name }}</span>
-                    <my-input v-model.number="element.value"
-                        @input="utilityStore.changeCostValue<ElementById>(element, sets)" />
-                    <my-select v-if="element.options" v-model="element.selectedValue" :options="element.options" />
+                    <div v-if="(typeof element !== 'object')">
+                        <span class="section__name">{{ element }}</span>
+                    </div>
+                    <div v-else>
+                        <span class="name">{{ element.name }}</span>
+                        <my-input v-model.number="element.value"
+                            @input="utilityStore.changeCostValue<ElementById>(element, sets)" />
+                        <my-select v-if="element.options" v-model="element.selectedValue" :options="element.options" />
+                    </div>
                 </div>
             </div>
             <div class="section__loot">
@@ -55,18 +56,10 @@ onMounted(() => {
     flex-wrap: wrap;
     padding: 10px;
 
-    &__names {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        width: 100%;
+    &__name {
         color: var(--my-main-color);
         font-size: 24px;
         margin-bottom: 10px;
-    }
-
-    &__name {
-        display: flex;
-        justify-content: center;
     }
 
     &__content {
@@ -74,7 +67,13 @@ onMounted(() => {
 
         &:nth-child(-n + 2) {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, auto);
+        }
+
+        @media (max-width:1366px) {
+            &:nth-child(-n + 2) {
+                display: block;
+            }
         }
     }
 
@@ -83,26 +82,66 @@ onMounted(() => {
         grid-template-columns: repeat(5, 1fr);
         grid-area: 2 / 1 / 3 / 3;
         margin-top: 10px;
+
+        @media (max-width:1366px) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        @media (max-width:1200px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media (max-width:767px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width:525px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
     }
 
     &__sets {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr) auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        @media (max-width:767px) {
+            flex-wrap: nowrap;
+            flex-direction: column;
+            width: 300px;
+            margin: 0 auto;
+        }
     }
 
     &__element {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
+        margin-right: 10px;
+
+        &:first-child {
+            width: 100%;
+            justify-content: center;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width:1366px) {
+            &:first-child {
+                margin: 10px 0 5px 0;
+            }
+        }
+
+
+        @media (max-width:767px) {
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
 
         select {
             margin-left: 5px;
         }
-
-        &:last-child {
-            margin-right: 10px;
-        }
     }
+
 }
 
 .center {
